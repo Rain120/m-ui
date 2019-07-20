@@ -1,0 +1,25 @@
+{
+  "name": "@chao/m-ui",
+  "version": "1.0.0",
+  "description": "@react/mobile ui design for study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Rain120/m-ui.git"
+  },
+  "keywords": [
+    "m-ui",
+    "mobile-ui",
+    "react.js",
+    "react",
+    "component",
+    "components",
+    "ui",
+    "framework"
+  ],
+  "author": "Rain120",
+  "license": "MIT"
+}
