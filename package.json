@@ -1,10 +1,12 @@
 {
-  "name": "@chao/m-ui",
-  "version": "1.0.0",
-  "description": "@react/mobile ui design for study",
+  "name": "@zc/rmc-ui",
+  "author": "Rain120",
+  "version": "0.0.1",
+  "description": "@react mobile components ui design for study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "tslint --type-check --project ./tsconfig.json --exclude \"components/*/*.tsx\"",
+    "pre-commit-format": "npm lint"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,38 @@
     "ui",
     "framework"
   ],
-  "author": "Rain120",
-  "license": "MIT"
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm pre-commit-format",
+    }
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.16.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.1"
+  }
 }
