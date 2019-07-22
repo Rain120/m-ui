@@ -3,7 +3,7 @@
 
 ### origin
 
-- study for design components using react for mobile
+- study for design mobile components using react
 
 ### plan
 

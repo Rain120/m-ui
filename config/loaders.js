@@ -3,12 +3,12 @@ const tsImportPluginFactory = require('ts-import-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const autoprefixer = require('autoprefixer')({
-  browsers: [
-    '>1%',
-    'last 4 versions',
-    'Firefox ESR',
-    'not ie < 9',
-  ],
+  // browsers: [
+  //   '>1%',
+  //   'last 4 versions',
+  //   'Firefox ESR',
+  //   'not ie < 9',
+  // ],
   flexbox: 'no-2009',
 });
 
@@ -37,23 +37,10 @@ const urlLoader = {
   },
 };
 
-const importPluginOption = [
-  {
-    libraryName: 'antd',
-    libraryDirectory: 'lib',
-    style: 'css'
-  },
-  {
-    libraryName: 'antd-mobile',
-    libraryDirectory: 'lib',
-    style: 'css',
-  }
-];
-
 // js loader
 const jsLoader = {
   test: /\.(js|jsx|mjs)$/,
-  include: paths.appSrc,
+  include: paths.appExamples,
   loader: require.resolve('babel-loader'),
   options: {
     
@@ -65,15 +52,12 @@ const jsLoader = {
 // ts loader
 const tsLoader = {
   test: /\.(ts|tsx)$/,
-  include: paths.appSrc,
+  include: paths.appExamplesSrc,
   use: [
     {
       loader: require.resolve('ts-loader'),
       options: {
         transpileOnly: true,
-        getCustomTransformers: () => ({
-          before: [tsImportPluginFactory(importPluginOption)]
-        })
       }
     }
   ]
@@ -167,34 +151,6 @@ const scssLoaderProd = {
   )
 };
 
-// less loader
-const lessLoaderDev = {
-  test: /\.less$/,
-  use: [
-    require.resolve('style-loader'),
-    rawCssLoaderDev,
-    postcssLoader,
-    require.resolve('less-loader')
-  ],
-};
-
-const lessLoaderProd = {
-  test: /\.less$/,
-  loader: ExtractTextPlugin.extract(
-    Object.assign(
-      {
-        fallback: require.resolve('style-loader'),
-        use: [
-          rawCssLoaderProd,
-          postcssLoader,
-          require.resolve('less-loader')
-        ],
-      },
-      extractTextPluginOptions
-    )
-  )
-};
-
 const fileLoader = {
   loader: require.resolve('file-loader'),
   exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
@@ -211,8 +167,6 @@ module.exports = {
   cssLoaderProd,
   scssLoaderDev,
   scssLoaderProd,
-  lessLoaderDev,
-  lessLoaderProd,
   fileLoader,
   postcssLoader
 };

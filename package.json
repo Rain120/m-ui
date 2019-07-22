@@ -5,15 +5,16 @@
   "description": "@react mobile components ui design for study",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --mode development",
     "lint": "tslint --type-check --project ./tsconfig.json --exclude \"components/*/*.tsx\"",
-    "pre-commit-format": "npm lint"
+    "pre-commit": "npm run lint"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Rain120/m-ui.git"
+    "url": "git@github.com:Rain120/rmc-ui.git"
   },
   "keywords": [
-    "m-ui",
+    "rmc-ui",
     "mobile-ui",
     "react.js",
     "react",
@@ -29,31 +30,50 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "npm pre-commit-format",
+      "pre-commit": "npm run pre-commit"
     }
   },
+  "browserslist": [
+    "last 4 version",
+    "> 1%",
+    "Firefox ESR",
+    "IE 10"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.1",
     "node-sass": "^4.12.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-import-plugin": "^1.6.1",
     "ts-loader": "^6.0.4",
     "tslint": "^5.16.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"
   }
 }
