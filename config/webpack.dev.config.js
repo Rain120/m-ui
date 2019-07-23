@@ -5,19 +5,37 @@ const path = require('path');
 const paths = require('./paths');
 const loaders = require('./loaders');
 const common = require('./webpack.base.config');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 9999;
 const pkg = require(path.join(process.cwd(), 'package.json'));
 
-module.exports = merge(common({ env: ENV}), {
+module.exports = merge(common({ env: ENV }), {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: path.join(__dirname, '../examples/', 'src/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: '[name].[hash:8].js'
+    filename: '[name].[hash:8].js',
+    libraryTarget: 'umd',
+    library: 'react-simple-component-boilerplate',
+    libraryExport: 'default',
+  },
+  externals: {
+    react: {
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react"
+    },
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom"
+    }
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"]
@@ -31,6 +49,7 @@ module.exports = merge(common({ env: ENV}), {
           loaders.jsLoader,
           loaders.tsLoader,
           loaders.cssLoaderDev,
+          loaders.lessLoaderDev,
           loaders.scssLoaderDev,
           loaders.fileLoader,
         ]
@@ -38,10 +57,12 @@ module.exports = merge(common({ env: ENV}), {
     ]
   },
   plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../examples/public/index.html')
-    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
+    // new HtmlWebpackPlugin({
+    //   template: path.resolve(__dirname, '../examples/public/index.html'),
+    //   filename: 'index.html'
+    // }),
     new webpack.DefinePlugin({
       'process.env': {
         VERSION: JSON.stringify(pkg.version)

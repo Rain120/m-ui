@@ -5,9 +5,10 @@
   "description": "@react mobile components ui design for study",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --mode development",
+    "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --mode development --open",
+    "build": "webpack --config ./config/webpack.dev.config.js",
     "lint": "tslint --type-check --project ./tsconfig.json --exclude \"components/*/*.tsx\"",
-    "pre-commit": "npm run lint"
+    "precommit": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-commit"
+      "pre-commit": "npm run precommit"
     }
   },
   "browserslist": [
@@ -54,11 +55,14 @@
     "@types/react-dom": "^16.8.4",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "node-sass": "^4.12.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",

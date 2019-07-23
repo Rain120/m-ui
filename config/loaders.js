@@ -125,6 +125,34 @@ const cssLoaderProd = {
   ),
 };
 
+// less loader
+const lessLoaderDev = {
+  test: /\.less$/,
+  use: [
+    require.resolve('style-loader'),
+    rawCssLoaderDev,
+    postcssLoader,
+    require.resolve('less-loader')
+  ],
+};
+
+const lessLoaderProd = {
+  test: /\.less$/,
+  loader: ExtractTextPlugin.extract(
+    Object.assign(
+      {
+        fallback: require.resolve('style-loader'),
+        use: [
+          rawCssLoaderProd,
+          postcssLoader,
+          require.resolve('less-loader')
+        ],
+      },
+      extractTextPluginOptions
+    )
+  )
+};
+
 // scss loader
 const scssLoaderDev = {
   test: /\.scss$/,
@@ -165,6 +193,8 @@ module.exports = {
   tsLoader,
   cssLoaderDev,
   cssLoaderProd,
+  lessLoaderDev,
+  lessLoaderProd,
   scssLoaderDev,
   scssLoaderProd,
   fileLoader,

@@ -15,6 +15,7 @@ module.exports = merge(common({ env: ENV }), {
           loaders.jsLoader,
           loaders.tsLoader,
           loaders.cssLoaderProd,
+          loaders.lessLoaderProd,
           loaders.scssLoaderProd,
           loaders.fileLoader,
         ]
