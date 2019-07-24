@@ -5,8 +5,8 @@
   "description": "@react mobile components ui design for study",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --mode development --open",
-    "build": "webpack --config ./config/webpack.dev.config.js",
+    "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --progress --mode development --watch",
+    "build": "webpack --config ./config/webpack.dev.config.js --progress",
     "lint": "tslint --type-check --project ./tsconfig.json --exclude \"components/*/*.tsx\"",
     "precommit": "npm run lint"
   },

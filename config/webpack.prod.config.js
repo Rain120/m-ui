@@ -3,7 +3,7 @@ const common = require('./webpack.base.config');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 
-module.exports = merge(common({ env: ENV }), {
+module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   module: {
