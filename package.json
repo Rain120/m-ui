@@ -6,9 +6,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --color --config config/webpack.dev.config.js --progress --mode development --watch",
-    "build": "webpack --config ./config/webpack.dev.config.js --progress",
+    "build:dev": "webpack --config ./config/webpack.dev.config.js --progress",
+    "build:prod": "webpack --config ./config/webpack.prod.config.js --progress",
     "lint": "tslint --type-check --project ./tsconfig.json --exclude \"components/*/*.tsx\"",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "repository": {
     "type": "git",

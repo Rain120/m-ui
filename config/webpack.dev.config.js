@@ -12,6 +12,13 @@ const PORT = process.env.PORT || 9999;
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-source-map',
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].min.js',
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
+  },
   module: {
     strictExportPresence: true,
     rules: [
@@ -30,8 +37,7 @@ module.exports = merge(common, {
   },
   plugins: [],
   devServer: {
-    // contentBase: path.resolve(__dirname, "../examples/src"),
-    contentBase: '../lib',
+    contentBase: '../dist',
     port: PORT,
     host: HOST,
     hot: true,
