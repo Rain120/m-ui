@@ -8,7 +8,7 @@
 .docz/
 
 # build
-demo/
+test/
 
 # production
 /build

@@ -7,14 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 
-console.log(
-  loaders.cssLoaderProd,
-  '111\n',
-  loaders.lessLoaderProd,
-  '222\n',
-  loaders.scssLoaderProd
-)
-
 module.exports = merge(common, {
   mode: ENV,
   devtool: 'source-map',
