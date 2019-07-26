@@ -5,11 +5,10 @@
 /coverage
 
 # docz
-.docz
+.docz/
 
 # build
-dist/
-lib/
+demo/
 
 # production
 /build

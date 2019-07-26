@@ -1,19 +1,22 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
-const loaders = require('./scripts/loaders');
-const common = require('./scripts/webpack.base.config');
+const loaders = require('./loaders');
+const common = require('./webpack.base.config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+
+console.log(__dirname, path.join(__dirname, '../components', 'index'))
+
 module.exports = merge(common, {
-  mode: 'development',
+  mode: ENV,
   devtool: 'cheap-module-source-map',
   entry: {
-    'rmc-ui': path.join(__dirname, './components', 'index'),
+    'rmc-ui': path.join(__dirname, '../components', 'index'),
   },
   output: {
-    path: path.resolve(__dirname, './test'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].min.js',
     library: '@zc/rmc-ui',
     libraryTarget: 'umd',
@@ -38,6 +41,7 @@ module.exports = merge(common, {
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
+    strictExportPresence: true,
     rules: [
       {
         oneOf: [
@@ -54,15 +58,15 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style/[name].css',
-      chunkFilename: 'style/[id].css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
       ignoreOrder: false,
     }),
     new CleanWebpackPlugin({
       dry: true,
       verbose: true,
       protectWebpackAssets: false,
-      cleanAfterEveryBuildPatterns: ['test/**/*']
+      cleanAfterEveryBuildPatterns: ['dist/**/*']
     })
-  ],
+  ]
 });

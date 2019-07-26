@@ -31,19 +31,4 @@ function getServedPath(appPackageJson) {
 }
 
 module.exports = {
-  dotenv: resolveApp('.env'),
-  appIndexJs: resolveApp('examples/index.tsx'),
-  appPackageJson: resolveApp('package.json'),
-  appLib: resolveApp('lib'),
-  appExamples: resolveApp('examples'),
-  appExamplesSrc: resolveApp('examples/src'),
-  appExamplesHtml: resolveApp('examples/public/index.html'),
-  yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveApp('examples/setupTests.ts'),
-  appNodeModules: resolveApp('node_modules'),
-  appTsConfig: resolveApp('tsconfig.json'),
-  appTsProdConfig: resolveApp('tsconfig.prod.json'),
-  appTsLint: resolveApp('tslint.json'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
 };

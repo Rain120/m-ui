@@ -1,6 +1,6 @@
 const paths = require('./paths');
-const tsImportPluginFactory = require('ts-import-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const autoprefixer = require('autoprefixer')({
   // browsers: [
@@ -19,9 +19,9 @@ const publicPath = paths.servedPath;
 const shouldUseRelativeAssetPaths = publicPath === './';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
-const cssFilename = 'static/css/[name].[contenthash:8].css';
+const cssFilename = 'style/css/[name].[contenthash:8].css';
 
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
+const miniCssExtractPluginOptions = shouldUseRelativeAssetPaths
   ?
   {
     publicPath: Array(cssFilename.split('/').length).join('../')
@@ -40,10 +40,9 @@ const urlLoader = {
 // js loader
 const jsLoader = {
   test: /\.(js|jsx|mjs)$/,
-  include: paths.appExamples,
+  include: path.join(__dirname, '../components'),
   loader: require.resolve('babel-loader'),
   options: {
-    
     compact: true,
   },
 };
@@ -52,7 +51,7 @@ const jsLoader = {
 // ts loader
 const tsLoader = {
   test: /\.(ts|tsx)$/,
-  include: paths.appExamplesSrc,
+  include: path.join(__dirname, '../components'),
   use: [
     {
       loader: require.resolve('ts-loader'),
@@ -103,7 +102,8 @@ const rawCssLoaderProd = {
 const cssLoaderDev = {
   test: /\.css$/,
   use: [
-    require.resolve('style-loader'),
+    MiniCssExtractPlugin.loader,
+    // require.resolve('style-loader'),
     rawCssLoaderDev,
     postcssLoader,
   ],
@@ -111,25 +111,24 @@ const cssLoaderDev = {
 
 const cssLoaderProd = {
   test: /\.css$/,
-  loader: ExtractTextPlugin.extract(
-    Object.assign(
-      {
-        fallback: require.resolve('style-loader'),
-        use: [
-          rawCssLoaderProd,
-          postcssLoader,
-        ],
-      },
-      extractTextPluginOptions
-    )
-  ),
+  loader: Object.assign({
+      // fallback: require.resolve('style-loader'),
+      use: [
+        MiniCssExtractPlugin.loader,
+        rawCssLoaderProd,
+        postcssLoader,
+      ],
+    },
+    miniCssExtractPluginOptions
+  )
 };
 
 // less loader
 const lessLoaderDev = {
   test: /\.less$/,
   use: [
-    require.resolve('style-loader'),
+    MiniCssExtractPlugin.loader,
+    // require.resolve('style-loader'),
     rawCssLoaderDev,
     postcssLoader,
     require.resolve('less-loader')
@@ -138,18 +137,16 @@ const lessLoaderDev = {
 
 const lessLoaderProd = {
   test: /\.less$/,
-  loader: ExtractTextPlugin.extract(
-    Object.assign(
-      {
-        fallback: require.resolve('style-loader'),
-        use: [
-          rawCssLoaderProd,
-          postcssLoader,
-          require.resolve('less-loader')
-        ],
-      },
-      extractTextPluginOptions
-    )
+  loader: Object.assign({
+      // fallback: require.resolve('style-loader'),
+      use: [
+        MiniCssExtractPlugin.loader,
+        rawCssLoaderProd,
+        postcssLoader,
+        require.resolve('less-loader')
+      ],
+    },
+    miniCssExtractPluginOptions
   )
 };
 
@@ -157,7 +154,8 @@ const lessLoaderProd = {
 const scssLoaderDev = {
   test: /\.scss$/,
   use: [
-    require.resolve('style-loader'),
+    MiniCssExtractPlugin.loader,
+    // require.resolve('style-loader'),
     rawCssLoaderDev,
     precssLoader,
   ],
@@ -165,17 +163,15 @@ const scssLoaderDev = {
 
 const scssLoaderProd = {
   test: /\.scss$/,
-  loader: ExtractTextPlugin.extract(
-    Object.assign(
-      {
-        fallback: require.resolve('style-loader'),
-        use: [
-          rawCssLoaderProd,
-          precssLoader,
-        ],
-      },
-      extractTextPluginOptions
-    )
+  loader: Object.assign({
+      // fallback: require.resolve('style-loader'),
+      use: [
+        MiniCssExtractPlugin.loader,
+        rawCssLoaderProd,
+        precssLoader
+      ],
+    },
+    miniCssExtractPluginOptions
   )
 };
 

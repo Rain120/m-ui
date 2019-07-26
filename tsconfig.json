@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "lib/",
+    "outDir": "es/",
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -9,7 +9,7 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    // "rootDir": "components",
+    "rootDir": "./components",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -21,17 +21,15 @@
     "experimentalDecorators": true
   },
   "include": [
-    "components/**/*",
-    "examples/**/*"
+    "components/**/*"
   ],
   "exclude": [
     "node_modules",
     "build",
     "scripts",
-    "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts",
-    "server"
+    "server",
+    ".docz"
   ]
 }
