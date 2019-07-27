@@ -1,9 +1,11 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const loaders = require('./loaders');
 const common = require('./webpack.base.config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 
@@ -56,6 +58,9 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerPort: 9999
+    }),
     new MiniCssExtractPlugin({
       filename: 'style/[name].css',
       chunkFilename: 'style/[id].css',
@@ -66,6 +71,11 @@ module.exports = merge(common, {
       verbose: true,
       protectWebpackAssets: false,
       cleanAfterEveryBuildPatterns: ['lib/**/*']
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
   ]
 });

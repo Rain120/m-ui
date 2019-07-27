@@ -165,6 +165,7 @@ const scssLoaderProd = {
   test: /\.scss$/,
   loader: Object.assign({
       // fallback: require.resolve('style-loader'),
+      enforce: "pre",
       use: [
         MiniCssExtractPlugin.loader,
         rawCssLoaderProd,

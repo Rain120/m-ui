@@ -10,16 +10,20 @@
     "es"
   ],
   "sideEffects": [
-    "*.css",
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
     "*.less"
   ],
   "scripts": {
     "dev": "webpack-dev-server --color --config scripts/webpack.dev.config.js --progress --mode development --watch",
     "build:test": "NODE_ENV=development webpack --config webpack.config.js --progress",
     "build:dev": "NODE_ENV=development webpack --config scripts/webpack.dev.config.js --progress",
-    "build:prod": "NODE_ENV=production webpack --config scripts/webpack.prod.config.js --progress",
+    "build:prod": "webpack --config scripts/webpack.prod.config.js --progress",
     "build:es": "tsc --project tsconfig.json --module ES6 --outDir es/",
     "lint": "tslint --type-check --project ./tsconfig.json",
+    "build:analyze": "webpack --profile --json > ./analyze/stats.json --progress",
+    "analyze": "webpack-bundle-analyzer ./analyze/stats.json",
     "precommit": "npm run lint",
     "docz:dev": "yarn docz dev",
     "docz:build": "yarn docz build"
@@ -53,7 +57,9 @@
     "last 4 version",
     "> 1%",
     "Firefox ESR",
-    "IE 10"
+    "ie >= 9",
+    "iOS >= 8",
+    "Android >= 4"
   ],
   "dependencies": {
     "classnames": "^2.2.6",
@@ -89,6 +95,7 @@
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.36.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"

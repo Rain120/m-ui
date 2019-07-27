@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const paths = require('./paths');
 
 const pkg = require(path.join(process.cwd(), 'package.json'));
 
