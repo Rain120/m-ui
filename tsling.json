@@ -1,72 +1,92 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "linterOptions": {
-    "exclude": [
-      "scripts/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
-  },
+  "extends": ["tslint-react", "tslint-eslint-rules", "tslint-config-prettier"],
   "rules": {
-    "no-string-throw": true,
-    "no-unused-expression": false,
-		"no-unused-variable": false,
-    "no-use-before-declare": false,
-    "no-duplicate-variable": false,
-    "curly": true,
     "class-name": true,
-    "triple-equals": [true, "allow-null-check"],
-    "comment-format": [false, "check-space"],
     "eofline": true,
-    "forin": false,
-    "indent": [true, "spaces", 2],
+    "forin": true,
+    "jsdoc-format": false,
     "label-position": true,
-    "max-line-length": [true, 150],
-    "member-access": false,
-    "no-arg": true,
-    "no-bitwise": false,
-    "no-console": [true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
+    "member-ordering": [
+      true,
+      {
+        "order": "statics-first"
+      }
     ],
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": true,
+    "no-console": [true, "debug", "info", "log", "time", "timeEnd", "trace"],
     "no-construct": true,
     "no-debugger": true,
-    "no-empty": false,
+    "no-duplicate-variable": true,
     "no-eval": true,
-    "no-inferrable-types": true,
-    "no-shadowed-variable": false,
-    "no-string-literal": false,
-    "no-switch-case-fall-through": false,
+    "no-internal-module": true,
+    "no-multi-spaces": true,
+    "no-namespace": true,
+    "no-reference": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
     "no-trailing-whitespace": true,
-    "no-var-keyword": false,
-    "object-literal-sort-keys": false,
-    "one-line": [true,
-      "check-open-brace",
-      "check-catch",
-      "check-else"
+    "no-unused-expression": true,
+    "no-var-keyword": true,
+    "object-curly-spacing": [true, "always"],
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "prefer-const": [true, { "destructuring": "all" }],
+    "radix": true,
+    "space-in-parens": true,
+    "switch-default": true,
+    "trailing-comma": [
+      true,
+      {
+        "singleline": "never",
+        "multiline": "always",
+        "esSpecCompliant": true
+      }
     ],
-    "radix": false,
-    "typedef-whitespace": [true, {
-      "call-signature": "nospace",
-      "index-signature": "nospace",
-      "parameter": "nospace",
-      "property-declaration": "nospace",
-      "variable-declaration": "nospace"
-    }],
-    "variable-name": [true, "ban-keywords"],
-    "whitespace": [true,
+    "triple-equals": [true, "allow-null-check"],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
+    ],
+    "use-isnan": true,
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "jsx-no-lambda": false,
+    "jsx-no-string-ref": false,
+    "jsx-boolean-value": [true, "never"],
+    "jsx-no-multiline-js": false,
+    "whitespace": [
+      true,
       "check-branch",
       "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
       "check-type",
+      "check-typecast",
+      "check-type-operator",
       "check-preblock"
-    ],
-    "ordered-imports": false,
-    "jsx-no-lambda": false,
-    "interface-name": [true, "never-prefix"],
-    "prefer-const": false,
-    "no-empty-interface": false
+    ]
   }
 }

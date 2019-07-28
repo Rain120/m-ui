@@ -33,7 +33,7 @@ const urlLoader = {
   loader: require.resolve('url-loader'),
   options: {
     limit: 10000,
-    name: 'static/media/[name].[hash:8].[ext]',
+    name: '[name].[hash:8].[ext]',
   },
 };
 
@@ -112,7 +112,7 @@ const cssLoaderDev = {
 const cssLoaderProd = {
   test: /\.css$/,
   loader: Object.assign({
-      // fallback: require.resolve('style-loader'),
+      fallback: require.resolve('style-loader'),
       use: [
         MiniCssExtractPlugin.loader,
         rawCssLoaderProd,
@@ -180,7 +180,7 @@ const fileLoader = {
   loader: require.resolve('file-loader'),
   exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
   options: {
-    name: 'static/media/[name].[hash:8].[ext]',
+    name: '[name].[hash:8].[ext]',
   },
 };
 

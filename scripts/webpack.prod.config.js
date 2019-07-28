@@ -62,8 +62,8 @@ module.exports = merge(common, {
       analyzerPort: 9999
     }),
     new MiniCssExtractPlugin({
-      filename: 'style/[name].css',
-      chunkFilename: 'style/[id].css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
       ignoreOrder: false,
     }),
     new CleanWebpackPlugin({

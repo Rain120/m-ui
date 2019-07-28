@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const loaders = require('./scripts/loaders');
@@ -6,8 +5,10 @@ const common = require('./scripts/webpack.base.config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+
 module.exports = merge(common, {
-  mode: 'development',
+  mode: ENV,
   devtool: 'cheap-module-source-map',
   entry: {
     'rmc-ui': path.join(__dirname, './components', 'index'),
@@ -54,8 +55,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style/[name].css',
-      chunkFilename: 'style/[id].css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
       ignoreOrder: false,
     }),
     new CleanWebpackPlugin({
