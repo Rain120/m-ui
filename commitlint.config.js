@@ -15,10 +15,13 @@ module.exports = {
         "build",
         "ci",
         "chore",
-        "revert"
+        "revert",
+        "readme",
+        "config"
       ]
     ],
     "subject-full-stop": [0, "never"],
     "subject-case": [0, "never"]
-  }
+  },
+  "header-max-length": 150
 };
