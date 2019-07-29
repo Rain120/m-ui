@@ -61,3 +61,30 @@ error TS5042: Option 'project' cannot be mixed with source files on a command li
 ![q3](./screenshots/q3.png)
 
 解决办法: ![a3](./screenshots/a3.png)
+
+- Q4
+```bash
+/usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:119
+        throw err;
+        ^
+
+Error: Recieved '.git/COMMIT_EDITMSG' as value for -E | --env, but environment variable '.git/COMMIT_EDITMSG' is not available globally
+    at getEditValue (/usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:271:10)
+    at normalizeFlags (/usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:264:15)
+    at /usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:126:11
+    at new Promise (<anonymous>)
+    at main (/usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:123:9)
+    at Object.<anonymous> (/usr/local/lib/node_modules/@commitlint/cli/lib/cli.js:115:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+husky > commit-msg hook failed (add --no-verify to bypass)
+```
+
+![q4-1](./screenshots/q4-1.png)
+![q4-2](./screenshots/q4-1.png)
+
+解决办法: 删除`commit-msg`中的`$`
+
+![a4](./screenshots/a4.png)
