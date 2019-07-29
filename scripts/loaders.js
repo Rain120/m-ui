@@ -1,4 +1,3 @@
-const paths = require('./paths');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -14,19 +13,6 @@ const autoprefixer = require('autoprefixer')({
 
 const precss = require('precss')();
 const flexBugFixes = require('postcss-flexbugs-fixes')();
-
-const publicPath = paths.servedPath;
-const shouldUseRelativeAssetPaths = publicPath === './';
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-
-const cssFilename = 'style/css/[name].[contenthash:8].css';
-
-const miniCssExtractPluginOptions = shouldUseRelativeAssetPaths
-  ?
-  {
-    publicPath: Array(cssFilename.split('/').length).join('../')
-  }
-  : {};
 
 const urlLoader = {
   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -83,97 +69,44 @@ const precssLoader = {
   },
 };
 
-const rawCssLoaderDev = {
+const rawCssLoader = {
   loader: require.resolve('css-loader'),
   options: {
     importLoaders: 1,
   },
 };
 
-const rawCssLoaderProd = {
-  loader: require.resolve('css-loader'),
-  options: {
-    importLoaders: 1,
-    minimize: true,
-    sourceMap: shouldUseSourceMap,
-  },
-};
-
-const cssLoaderDev = {
+const cssLoader = {
   test: /\.css$/,
   use: [
     MiniCssExtractPlugin.loader,
     // require.resolve('style-loader'),
-    rawCssLoaderDev,
+    rawCssLoader,
     postcssLoader,
   ],
 };
 
-const cssLoaderProd = {
-  test: /\.css$/,
-  loader: Object.assign({
-      fallback: require.resolve('style-loader'),
-      use: [
-        MiniCssExtractPlugin.loader,
-        rawCssLoaderProd,
-        postcssLoader,
-      ],
-    },
-    miniCssExtractPluginOptions
-  )
-};
-
 // less loader
-const lessLoaderDev = {
+const lessLoader = {
   test: /\.less$/,
   use: [
     MiniCssExtractPlugin.loader,
     // require.resolve('style-loader'),
-    rawCssLoaderDev,
+    rawCssLoader,
     postcssLoader,
     require.resolve('less-loader')
   ],
 };
 
-const lessLoaderProd = {
-  test: /\.less$/,
-  loader: Object.assign({
-      // fallback: require.resolve('style-loader'),
-      use: [
-        MiniCssExtractPlugin.loader,
-        rawCssLoaderProd,
-        postcssLoader,
-        require.resolve('less-loader')
-      ],
-    },
-    miniCssExtractPluginOptions
-  )
-};
-
 // scss loader
-const scssLoaderDev = {
+const scssLoader = {
   test: /\.scss$/,
   use: [
     MiniCssExtractPlugin.loader,
     // require.resolve('style-loader'),
-    rawCssLoaderDev,
+    rawCssLoader,
     precssLoader,
   ],
-};
-
-const scssLoaderProd = {
-  test: /\.scss$/,
-  loader: Object.assign({
-      // fallback: require.resolve('style-loader'),
-      enforce: "pre",
-      use: [
-        MiniCssExtractPlugin.loader,
-        rawCssLoaderProd,
-        precssLoader
-      ],
-    },
-    miniCssExtractPluginOptions
-  )
 };
 
 const fileLoader = {
@@ -188,12 +121,9 @@ module.exports = {
   urlLoader,
   jsLoader,
   tsLoader,
-  cssLoaderDev,
-  cssLoaderProd,
-  lessLoaderDev,
-  lessLoaderProd,
-  scssLoaderDev,
-  scssLoaderProd,
+  cssLoader,
+  lessLoader,
+  scssLoader,
   fileLoader,
   postcssLoader
 };

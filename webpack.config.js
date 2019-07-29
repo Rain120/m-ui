@@ -45,10 +45,10 @@ module.exports = merge(common, {
           loaders.urlLoader,
           loaders.jsLoader,
           loaders.tsLoader,
-          loaders.cssLoaderDev,
-          loaders.lessLoaderDev,
+          loaders.cssLoader,
+          loaders.lessLoader,
           loaders.fileLoader,
-          loaders.scssLoaderDev,
+          loaders.scssLoader,
         ]
       }
     ]

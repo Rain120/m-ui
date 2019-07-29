@@ -38,7 +38,8 @@ module.exports = merge(common, {
     }
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    enforceExtension: false,
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".less"]
   },
   module: {
     strictExportPresence: true,
@@ -48,16 +49,16 @@ module.exports = merge(common, {
           loaders.urlLoader,
           loaders.jsLoader,
           loaders.tsLoader,
-          loaders.cssLoaderDev,
-          loaders.lessLoaderDev,
+          loaders.cssLoader,
+          loaders.lessLoader,
           loaders.fileLoader,
-          loaders.scssLoaderDev,
+          loaders.scssLoader,
         ]
       }
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
@@ -68,6 +69,11 @@ module.exports = merge(common, {
       verbose: true,
       protectWebpackAssets: false,
       cleanAfterEveryBuildPatterns: ['dist/**/*']
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
+    }),
   ]
 });

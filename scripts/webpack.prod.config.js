@@ -49,18 +49,18 @@ module.exports = merge(common, {
           loaders.urlLoader,
           loaders.jsLoader,
           loaders.tsLoader,
-          loaders.cssLoaderProd,
-          loaders.lessLoaderProd,
-          loaders.scssLoaderProd,
+          loaders.cssLoader,
+          loaders.lessLoader,
           loaders.fileLoader,
+          loaders.scssLoader,
         ]
       }
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin({
-      analyzerPort: 9999
-    }),
+    // new BundleAnalyzerPlugin({
+    //   analyzerPort: 9999
+    // }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

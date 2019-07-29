@@ -53,3 +53,11 @@ Invalid configuration object. Webpack has been initialised using a configuration
 ![q2](./screenshots/q2.png)
 
 解决办法: 配置的`loader`中类型不对
+
+- Q3
+```bash
+error TS5042: Option 'project' cannot be mixed with source files on a command line.
+```
+![q3](./screenshots/q3.png)
+
+解决办法: ![a3](./screenshots/a3.png)
