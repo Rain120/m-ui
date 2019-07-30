@@ -45,8 +45,8 @@
     "lint-staged:ts": "npm run tsc && node node_modules/tslint/bin/tslint -c ./tslint.json components/**/*.tsx",
     "lint": "tslint --type-check --project ./tsconfig.json && stylelint \"components/**/*.less\"",
     "precommit": "npm run lint",
-    "docz:dev": "yarn docz dev",
-    "docz:build": "yarn docz build"
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "lint-staged": {
     "components/**/*.{tsx}": [
@@ -92,6 +92,7 @@
     "conventional-changelog-cli": "^2.0.23",
     "cross-env": "^5.2.0",
     "css-loader": "^3.1.0",
+    "docz": "^1.2.0",
     "file-loader": "^4.1.0",
     "husky": "^3.0.1",
     "less": "^3.9.0",
