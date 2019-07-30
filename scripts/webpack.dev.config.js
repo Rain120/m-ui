@@ -41,6 +41,14 @@ module.exports = merge(common, {
     enforceExtension: false,
     extensions: [".ts", ".tsx", ".js", ".jsx", ".less"]
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+        new UglifyJSPlugin({
+            include: /\.min\.js$/,
+        }),
+    ],
+  },
   module: {
     strictExportPresence: true,
     rules: [
