@@ -1,3 +1,36 @@
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const merge = require('webpack-merge');
+
+const modifyBundlerConfig = (config, dev) => {
+  const styleLoaders = ['css-loader'];
+  styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
+  return merge(config, {
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, './components')
+      }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: styleLoaders
+        },
+        { test: /\.less$/, use: [...styleLoaders, 'less-loader'] }
+      ]
+    },
+    optimization: {},
+    plugins: [
+      dev
+        ? () => {}
+        : new MiniCssExtractPlugin({
+            chunkFilename: 'static/css/common.[hash].css'
+          })
+    ]
+  });
+}
+
 module.exports = {
   title: '@zc/rmc-ui',
   codeSandbox: false,

@@ -35,8 +35,8 @@
   "scripts": {
     "dev": "webpack-dev-server --color --config scripts/webpack.dev.config.js --progress --mode development --watch",
     "build:test": "cross-env NODE_ENV=development webpack --config webpack.config.js --progress",
-    "build:dev": "cross-env NODE_ENV=development webpack --config scripts/webpack.dev.config.js --progress",
-    "build:prod": "cross-env NODE_ENV=production webpack --config scripts/webpack.prod.config.js --progress",
+    "build:dist": "cross-env NODE_ENV=development webpack --config scripts/webpack.dev.config.js --progress",
+    "build:lib": "cross-env NODE_ENV=production webpack --config scripts/webpack.prod.config.js --progress",
     "build:es": "tsc --project ./tsconfig.json --declaration --module ES6 --outDir es/",
     "build:analyze": "webpack --profile --json > ./analyze/stats.json --progress",
     "analyze": "webpack-bundle-analyzer ./analyze/stats.json",
