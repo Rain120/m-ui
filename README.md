@@ -88,3 +88,18 @@ husky > commit-msg hook failed (add --no-verify to bypass)
 解决办法: 删除`commit-msg`中的`$`
 
 ![a4](./screenshots/a4.png)
+
+- Q5
+```bash
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://fb.me/react-invalid-hook-call for tips about how to debug and fix this problem.
+```
+
+[解决办法](https://github.com/pedronauck/docz/issues/707):
+1. Add .docz to .gitignore
+2. In frontend folder, rm -rf node_modules package-lock.json .docz
+3. In frontend folder, npm i
+4. In frontend folder, docz dev
