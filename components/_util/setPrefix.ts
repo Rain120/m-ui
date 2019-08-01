@@ -1,3 +1,1 @@
-export const setPrefix = (type: string) => {
-  return `rmc-ui-${type}`
-}
+export const setPrefix = (type: string) => `rmc-ui-${type}`;
