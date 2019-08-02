@@ -14,7 +14,7 @@ module.exports = merge(common, {
     'rmc-ui': path.join(__dirname, './components', 'index'),
   },
   output: {
-    path: path.resolve(__dirname, './test'),
+    path: path.resolve(__dirname, './test-demo'),
     filename: '[name].min.js',
     library: '@zc/rmc-ui',
     libraryTarget: 'umd',
@@ -63,7 +63,7 @@ module.exports = merge(common, {
       dry: true,
       verbose: true,
       protectWebpackAssets: false,
-      cleanAfterEveryBuildPatterns: ['test/**/*']
+      cleanAfterEveryBuildPatterns: ['test-demo/**/*']
     })
   ],
 });

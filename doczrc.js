@@ -34,6 +34,8 @@ const modifyBundlerConfig = (config, dev) => {
 module.exports = {
   title: '@zc/rmc-ui',
   codeSandbox: false,
+  hashRouter: true,
+  dest: 'docs',
   htmlContext: {
     head: {
       links: [
@@ -45,11 +47,11 @@ module.exports = {
     }
   },
   themeConfig: {
-    showPlaygroundEditor: false,
+    showPlaygroundEditor: true,
     codemirrorTheme: 'material'
   },
   typescript: true,
-  propsParser: false,
+  propsParser: true,
   notUseSpecifiers: true,
   filterComponents: files => files.filter(filepath => /components\/.*\/*\.(js|jsx|ts|tsx)$/.test(filepath)),
   modifyBundlerConfig,

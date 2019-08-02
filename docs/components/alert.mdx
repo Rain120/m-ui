@@ -4,19 +4,23 @@ menu: Components
 route: /components/Alert
 ---
 
-import { Playground } from "docz";
+import { Playground, Props } from "docz";
 import { Alert } from 'components';
 
-### Alert
+# Alert
 
-#### Alert Demo
+### 基本用法
 
 <Playground>
   <Alert message="LOL😀" />
 </Playground>
 
-#### API
+### API
+
+<Props of={Alert} />
 
 |属性|说明|类型|默认值|版本|
-| - |-|-|-|-|
-|1|2|3|4|0.0.1|
+|:-:|:-:|:-:|:-:|:-:|
+|type|类型|String|'success' \| 'error' \| 'warn' \| 'info'|0.0.1|
+|message|内容|ReactNode|-|0.0.1|
+|className|类名|String|-|0.0.1|
