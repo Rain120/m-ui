@@ -23,18 +23,5 @@
       "./typings"
     ]
   },
-  "include": [
-    "components/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "scripts",
-    "webpack",
-    "jest",
-    ".docz",
-    "dist",
-    "lib",
-    "es",
-    "test"
-  ]
+  "exclude": ["node_modules", "lib", "es"]
 }

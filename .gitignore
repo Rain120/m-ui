@@ -14,7 +14,7 @@ test/
 analyze/
 
 # production
-/build
+build/
 
 # config
 .vscode/
