@@ -23,5 +23,11 @@
       "./typings"
     ]
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "exclude": [
+    "node_modules",
+    "__mocks__",
+    "lib",
+    "es",
+    "test"
+  ]
 }

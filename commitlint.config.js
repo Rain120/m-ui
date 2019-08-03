@@ -21,7 +21,7 @@ module.exports = {
       ]
     ],
     "subject-full-stop": [0, "never"],
-    "subject-case": [0, "never"]
+    "subject-case": [0, "never"],
+    "header-max-length": [0, "always", 150],
   },
-  "header-max-length": 150
 };

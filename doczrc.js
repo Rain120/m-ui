@@ -32,10 +32,10 @@ const modifyBundlerConfig = (config, dev) => {
 }
 
 module.exports = {
-  title: '@zc/rmc-ui',
+  title: 'zc/rmc-ui',
   codeSandbox: false,
   hashRouter: true,
-  dest: 'docs',
+  // dest: 'docs',
   htmlContext: {
     head: {
       links: [
