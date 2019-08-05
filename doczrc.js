@@ -35,7 +35,7 @@ module.exports = {
   title: 'zc/rmc-ui',
   codeSandbox: false,
   hashRouter: true,
-  // dest: 'docs',
+  dest: 'docs',
   htmlContext: {
     head: {
       links: [
