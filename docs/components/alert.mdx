@@ -12,15 +12,21 @@ import { Alert } from 'components';
 ### 基本用法
 
 <Playground>
-  <Alert message="LOL😀" />
+  <Alert message="LOL😀" type="success" />
+  <br />
+  <Alert message="LOL😀" type="info" />
+  <br />
+  <Alert message="LOL😀" type="warning" />
+  <br />
+  <Alert message="LOL😀" type="error" />
 </Playground>
 
 ### API
-
-<Props of={Alert} />
 
 |属性|说明|类型|默认值|版本|
 |:-:|:-:|:-:|:-:|:-:|
 |type|类型|String|'success' \| 'error' \| 'warn' \| 'info'|0.0.1|
 |message|内容|ReactNode|-|0.0.1|
 |className|类名|String|-|0.0.1|
+
+<Props of={Alert} />

@@ -1,11 +1,42 @@
+@import "../../_style//colors/colors.less";
+
+@alert-success-color: @success-color;
+@alert-info-color: @info-color;
+@alert-warning-color: @warning-color;
+@alert-error-color: @error-color;
+
+@alert-success-border-color: @success-border-color;
+@alert-info-border-color: @info-border-color;
+@alert-warning-border-color: @warning-border-color;
+@alert-error-border-color: @error-border-color;
+
 .rmc-ui-alert {
-    font-size: 12px;
-    transform: translate(12px, 50%);
-    transform: translateX(2em);
-    transform: translateY(3in);
-    transform: scale(2, 0.5);
-    transform: scaleX(2);
-    transform: scaleY(0.5);
-    transform: rotate(0.5turn);
-    transform: skew(30deg, 20deg);
+  box-sizing: border-box;
+  margin: 0;
+  color: rgba(0, 0, 0, .65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  position: relative;
+  padding: 8px 15px 8px 37px;
+  border-radius: 4px;
+  &-success {
+    background-color: @alert-success-color;
+    border: 1px solid @alert-success-border-color;
+  }
+  &-info {
+    background-color: @alert-info-color;
+    border: 1px solid @alert-info-border-color;
+  }
+  &-warning {
+    background-color: @alert-warning-color;
+    border: 1px solid @alert-warning-border-color;
+  }
+  &-error {
+    background-color: @alert-error-color;
+    border: 1px solid @alert-error-border-color;
+  }
 }
