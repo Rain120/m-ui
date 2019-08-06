@@ -1,0 +1,58 @@
+---
+name: WingBlank
+menu: Components
+route: /components/WingBlank
+---
+
+import { Playground, Props } from "docz";
+import { Alert, WingBlank, WhiteSpace } from 'components';
+
+# WingSpace
+
+### 基本用法
+
+<Playground>
+  {
+    () => {
+      class ExampleWingBlank extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <WingBlank>
+                <Alert message="size: default -> lg -> LOL😀" type="success" />
+              </WingBlank>
+              <WhiteSpace size="lg" />
+
+              <WingBlank size="lg">
+                <Alert message="size: lg -> LOL😀" type="info" />
+              </WingBlank>
+              <WhiteSpace size="lg" />
+
+              <WingBlank size="md">
+                <Alert message="size: md -> LOL😀" type="warning" />
+              </WingBlank>
+              <WhiteSpace size="lg" />
+
+              <WingBlank size="sm">
+                <Alert message="size: sm -> LOL😀" type="error" />
+              </WingBlank>
+            </div>
+          );
+        }
+      }
+      return <ExampleWingBlank />;
+    }
+  }
+</Playground>
+
+### API
+
+| 属性 |                            说明                             |  类型  | 默认值 | 版本  |
+| :--: | :---------------------------------------------------------: | :----: | :----: | :---: |
+| **size** | 两侧留白的间距, 可选有 'lg' \| 'md' \| 'sm' | `string` |   `lg`   | 0.0.1 |
+
+<Props of={WingBlank} />

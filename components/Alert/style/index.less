@@ -1,4 +1,5 @@
-@import "../../_style//colors/colors.less";
+@import '../../_style/mixins/mixins.less';
+@import "../../_style/colors/colors.less";
 
 @alert-success-color: @success-color;
 @alert-info-color: @info-color;
@@ -10,7 +11,9 @@
 @alert-warning-border-color: @warning-border-color;
 @alert-error-border-color: @error-border-color;
 
-.rmc-ui-alert {
+@alert-prefix-cls: ~'@{rmc-ui-prefix}-alert';
+
+.@{alert-prefix-cls} {
   box-sizing: border-box;
   margin: 0;
   color: rgba(0, 0, 0, .65);
@@ -38,5 +41,10 @@
   &-error {
     background-color: @alert-error-color;
     border: 1px solid @alert-error-border-color;
+  }
+  &-banner {
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
   }
 }

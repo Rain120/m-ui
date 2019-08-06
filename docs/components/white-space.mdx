@@ -1,0 +1,59 @@
+---
+name: WhiteSpace
+menu: Components
+route: /components/WhiteSpace
+---
+
+import { Playground, Props } from "docz";
+import { Alert, WhiteSpace } from 'components';
+
+# WhiteSpace
+
+### 基本用法
+
+<Playground>
+  {
+    () => {
+      class ExampleWhiteSpace extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <Alert message="size: default -> md -> LOL😀" type="success" />
+              <WhiteSpace />
+
+              <Alert message="size: xl -> LOL😀" type="success" />
+              <WhiteSpace size="xl" />
+
+              <Alert message="size: lg -> LOL😀" type="info" />
+              <WhiteSpace size="lg" />
+
+              <Alert message="size: md -> LOL😀" type="warning" />
+              <WhiteSpace size="md" />
+
+              <Alert message="size: sm -> LOL😀" type="error" />
+              <WhiteSpace size="sm" />
+
+              <Alert message="size: xs -> LOL😀" type="error" />
+              <WhiteSpace size="xs" />
+              
+              <Alert message="bottom -> LOL😀" type="error" />
+            </div>
+          );
+        }
+      }
+      return <ExampleWhiteSpace />;
+    }
+  }
+</Playground>
+
+### API
+
+| 属性 |                            说明                             |  类型  | 默认值 | 版本  |
+| :--: | :---------------------------------------------------------: | :----: | :----: | :---: |
+| **size** | 上下留白的间距, 可选有 'xl' \| 'lg' \| 'md' \| 'sm' \| 'xs' | `string` |   `md`   | 0.0.1 |
+
+<Props of={WhiteSpace} />

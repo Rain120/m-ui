@@ -5,28 +5,47 @@ route: /components/Alert
 ---
 
 import { Playground, Props } from "docz";
-import { Alert } from 'components';
+import { Alert, WhiteSpace } from 'components';
 
 # Alert
 
 ### 基本用法
 
 <Playground>
-  <Alert message="LOL😀" type="success" />
-  <br />
-  <Alert message="LOL😀" type="info" />
-  <br />
-  <Alert message="LOL😀" type="warning" />
-  <br />
-  <Alert message="LOL😀" type="error" />
+  {
+    () => {
+      class ExampleAlert extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <Alert message="LOL😀" type="success" />
+              <WhiteSpace />
+              <Alert message="LOL😀" type="info" />
+              <WhiteSpace />
+              <Alert message="LOL😀" type="warning" />
+              <WhiteSpace />
+              <Alert message="LOL😀" type="error" />
+              <WhiteSpace />
+              <Alert message="LOL😀" banner={true} />
+            </div>
+          );
+        }
+      }
+      return <ExampleAlert />;
+    }
+  }
 </Playground>
 
 ### API
 
-|属性|说明|类型|默认值|版本|
-|:-:|:-:|:-:|:-:|:-:|
-|type|类型|String|'success' \| 'error' \| 'warn' \| 'info'|0.0.1|
-|message|内容|ReactNode|-|0.0.1|
-|className|类名|String|-|0.0.1|
+|    属性     |                             说明                             |             类型             |                  默认值                  | 版本  |
+| :---------: | :----------------------------------------------------------: | :--------------------------: | :--------------------------------------: | :---: |
+|  **type**   | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` |           `string`           | `info`，`banner`模式下默认值为 `warning` | 0.0.1 |
+| **message** |                       警告提示内容类名                       | `string` \| `ReactNodestring` |                    无                    | 0.0.1 |
+| **banner**  |                       是否用作顶部公告                       |          `boolean`           |                 `false`                  | 0.0.1 |
 
 <Props of={Alert} />

@@ -17,7 +17,8 @@ module.exports = {
         "chore",
         "revert",
         "readme",
-        "config"
+        "config",
+        "components"
       ]
     ],
     "subject-full-stop": [0, "never"],
