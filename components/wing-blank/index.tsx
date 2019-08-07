@@ -1,15 +1,12 @@
 import * as React from 'react';
 import classname from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
+import { WingBlankSizeProps, CustomProps } from '../_util/customProps';
 import './style';
 
-interface WingSpaceProps {
-  size?: 'lg' | 'md' | 'sm';
-  className?: string;
-  style?: React.CSSProperties;
-}
+interface WingBlankProps extends WingBlankSizeProps, CustomProps {}
 
-export default class WingSpace extends React.Component<WingSpaceProps> {
+export default class WingBlank extends React.Component<WingBlankProps> {
 
   render() {
     const { size = 'lg', style, className, children } = this.props;
