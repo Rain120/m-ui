@@ -1,0 +1,54 @@
+---
+name: Icon
+menu: Components
+route: /components/Icon
+---
+
+import { Playground, Props } from 'docz';
+import { Icon, WhiteSpace } from 'components';
+import { Left, Right, Loading } from 'components/icon/icons'
+
+# Icon
+
+### 基本用法
+
+<Playground>
+  {
+    () => {
+      class ExampleIcon extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              {/* <Icon type="left" width={32} height={32} fill='red' /> */}
+              {/* <WhiteSpace /> */}
+              {/* <Left width={64} height={64}  fill='green' /> */}
+              {/* <WhiteSpace /> */}
+              {/* <Icon type="right" width={32} height={32} /> */}
+              {/* <WhiteSpace /> */}
+              {/* <Right /> */}
+              {/* <WhiteSpace /> */}
+              <Icon type="loading" width={32} height={32} fill="red"/>
+              <WhiteSpace />
+              <Loading width={64} height={64}  fill="green" />
+            </div>
+          );
+        }
+      }
+      return <ExampleIcon />;
+    }
+  }
+</Playground>
+
+### API
+
+|    属性     |                             说明                             |             类型             |                  默认值                  | 版本  |
+| :---------: | :----------------------------------------------------------: | :--------------------------: | :--------------------------------------: | :---: |
+|  **type**   | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` |           `string`           | `info`，`banner`模式下默认值为 `warning` | 0.0.1 |
+| **message** |                       警告提示内容类名                       | `string` \| `ReactNodestring` |                    无                    | 0.0.1 |
+| **banner**  |                       是否用作顶部公告                       |          `boolean`           |                 `false`                  | 0.0.1 |
+
+<Props of={Icon} />
