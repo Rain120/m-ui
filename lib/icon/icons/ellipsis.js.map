@@ -1,0 +1,1 @@
+{"version":3,"file":"ellipsis.js","sourceRoot":"","sources":["../../../components/icon/icons/ellipsis.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAC/B,OAAO,QAAQ,MAAM,YAAY,CAAC;AAQlC,MAAM,OAAO,QAAS,SAAQ,KAAK,CAAC,SAAwB;IAC1D,MAAM;QACJ,OAAO,oBAAC,QAAQ,kBAAC,IAAI,EAAC,UAAU,IAAM,IAAI,CAAC,KAAK,EAAI,CAAC;IACvD,CAAC;CACF"}
