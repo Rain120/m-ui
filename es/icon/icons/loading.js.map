@@ -1,0 +1,1 @@
+{"version":3,"file":"loading.js","sourceRoot":"","sources":["../../../components/icon/icons/loading.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAC/B,OAAO,QAAQ,MAAM,YAAY,CAAC;AAQlC,MAAM,OAAO,OAAQ,SAAQ,KAAK,CAAC,SAAuB;IACxD,MAAM;QACJ,OAAO,oBAAC,QAAQ,kBAAC,IAAI,EAAC,SAAS,IAAM,IAAI,CAAC,KAAK,EAAI,CAAC;IACtD,CAAC;CACF"}

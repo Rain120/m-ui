@@ -5,8 +5,8 @@ route: /components/Icon
 ---
 
 import { Playground, Props } from 'docz';
-import { Icon, WhiteSpace } from 'components';
-import { Left, Right, Loading } from 'components/icon/icons'
+import { Flex, Icon, WhiteSpace } from 'components';
+import * as IconLists from 'components/icon/icons'
 
 # Icon
 
@@ -21,19 +21,37 @@ import { Left, Right, Loading } from 'components/icon/icons'
         }
 
         render() {
+          const style = {
+            marginRight: '10px'
+          };
           return (
             <div>
-              {/* <Icon type="left" width={32} height={32} fill='red' /> */}
-              {/* <WhiteSpace /> */}
-              {/* <Left width={64} height={64}  fill='green' /> */}
-              {/* <WhiteSpace /> */}
-              {/* <Icon type="right" width={32} height={32} /> */}
-              {/* <WhiteSpace /> */}
-              {/* <Right /> */}
-              {/* <WhiteSpace /> */}
-              <Icon type="loading" width={32} height={32} fill="red"/>
-              <WhiteSpace />
-              <Loading width={64} height={64}  fill="green" />
+              <h3>Left</h3>
+              <Flex align="center">
+                <Flex.Item>
+                  <Icon style={style} type="left" fill='red' />
+                  <IconLists.Left style={style} fill='green' />
+                </Flex.Item>
+              </Flex>
+              <h3>Right</h3>
+              <Flex>
+                <Flex.Item>
+                  <Icon style={style} type="right" />
+                  <IconLists.Right style={style} fill='green' />
+                </Flex.Item>
+              </Flex>
+              <h3>Loading</h3>
+              <Flex>
+                <Flex.Item>
+                  <Icon style={style} type="loading" />
+                  <IconLists.Loading style={style} fill='green' />
+                  <IconLists.Loading style={style} size="xss" fill="red" storke="#ccc" />
+                  <IconLists.Loading style={style} size="xs" fill="green" />
+                  <IconLists.Loading style={style} size="sm" fill="blue" />
+                  <IconLists.Loading style={style} size="md" fill="#ccc" />
+                  <IconLists.Loading style={style} size="lg" fill="yellow" />
+                </Flex.Item>
+              </Flex>
             </div>
           );
         }

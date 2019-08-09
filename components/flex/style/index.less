@@ -1,0 +1,119 @@
+@import '../../_style/mixins/mixins.less';
+
+@flex-prefix-cls: ~'@{rmc-ui-prefix}-flex';
+
+.@{flex-prefix-cls} {
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  &&-direction-row {
+    flex-direction: row;
+  }
+
+  &&-direction-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &&-direction-column {
+    flex-direction: column;
+    .@{flex-prefix-cls}-item {
+      margin-left: 0;
+    }
+  }
+
+  &&-direction-column-reverse {
+    flex-direction: column-reverse;
+    .@{flex-prefix-cls}-item {
+      margin-left: 0;
+    }
+  }
+
+  &&-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &&-wrap {
+    flex-wrap: wrap;
+  }
+
+  &&-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &&-justify-start {
+    justify-content: flex-start;
+  }
+
+  &&-justify-end {
+    justify-content: flex-end;
+  }
+
+  &&-justify-center {
+    justify-content: center;
+  }
+
+  &&-justify-between {
+    justify-content: space-between;
+  }
+
+  &&-justify-around {
+    justify-content: space-around;
+  }
+
+  &&-align-start {
+    align-items: flex-start;
+  }
+
+  &&-align-end {
+    align-items: flex-end;
+  }
+
+  &&-align-center {
+    align-items: center;
+  }
+
+  &&-align-stretch {
+    align-items: stretch;
+  }
+
+  &&-align-baseline {
+    align-items: baseline;
+  }
+
+  &&-align-content-start {
+    align-content: flex-start;
+  }
+
+  &&-align-content-end {
+    align-content: flex-end;
+  }
+
+  &&-align-content-center {
+    align-content: center;
+  }
+
+  &&-align-content-between {
+    align-content: space-between;
+  }
+
+  &&-align-content-around {
+    align-content: space-around;
+  }
+
+  &&-align-content-stretch {
+    align-content: stretch;
+  }
+
+  & &-item {
+    box-sizing: border-box;
+    flex: 1;
+    margin-left: @h-spacing-md;
+    min-width: 10 * @hd;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
