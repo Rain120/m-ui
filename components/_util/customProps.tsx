@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export interface WingBlankSizeProps {
   size: 'lg' | 'md' | 'sm';
 }
@@ -9,6 +7,28 @@ export interface WingSpaceSizeProps {
 
 export interface IconSizeProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
+}
+
+export type ThemeType = 'filled' | 'outlined';
+
+export interface SvgProps {
+  viewBox?: string;
+  width?: string | number;
+  height?: string | number;
+  fill?: string;
+  theme?: ThemeType;
+  spin?: boolean;
+  rotate?: number;
+}
+
+export interface CustomIconProps {
+  width?: string | number;
+  height?: string | number;
+  fill?: string;
+  theme?: ThemeType;
+  spin?: boolean;
+  rotate?: number;
+  component?: React.ComponentType<SvgProps>;
 }
 
 export interface EventProps {

@@ -9,12 +9,12 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import * as React from 'react';
-import classname from 'classnames';
+import React, { Component } from 'react';
+import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import * as IconsLists from './icons/index';
 import './style';
-export default class Icon extends React.Component {
+export default class Icon extends Component {
     renderSvg() {
         const _a = this.props, { type } = _a, restProps = __rest(_a, ["type"]);
         switch (type) {
@@ -32,8 +32,6 @@ export default class Icon extends React.Component {
                 return React.createElement(IconsLists.Down, Object.assign({}, restProps));
             case 'ellipsis':
                 return React.createElement(IconsLists.Ellipsis, Object.assign({}, restProps));
-            case 'fail':
-                return React.createElement(IconsLists.Fail, Object.assign({}, restProps));
             case 'loading':
                 return React.createElement(IconsLists.Loading, Object.assign({}, restProps));
             case 'minus':
@@ -42,8 +40,6 @@ export default class Icon extends React.Component {
                 return React.createElement(IconsLists.Plus, Object.assign({}, restProps));
             case 'search':
                 return React.createElement(IconsLists.Search, Object.assign({}, restProps));
-            case 'success':
-                return React.createElement(IconsLists.Success, Object.assign({}, restProps));
             case 'up':
                 return React.createElement(IconsLists.Up, Object.assign({}, restProps));
             case 'voice':
@@ -54,7 +50,7 @@ export default class Icon extends React.Component {
     render() {
         const { style, className } = this.props;
         const prefixCls = setPrefix('icon');
-        const wrapCls = classname(prefixCls, className);
+        const wrapCls = classnames(prefixCls, className);
         return (React.createElement("div", { className: wrapCls, style: style }, this.renderSvg()));
     }
 }

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import classname from 'classnames';
+import React, { Component } from 'react';
+import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import { WingSpaceSizeProps, CustomProps } from '../_util/customProps';
 import './style';
@@ -10,12 +10,12 @@ interface WhiteSpaceProps extends WingSpaceSizeProps, CustomProps{
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export default class WhiteSpace extends React.Component<WhiteSpaceProps> {
+export default class WhiteSpace extends Component<WhiteSpaceProps> {
 
   render() {
     const { size = 'md', className } = this.props;
     const prefix = setPrefix('white-space');
-    const wrapCls = classname(prefix, `${prefix}-${size}`, className);
+    const wrapCls = classnames(prefix, `${prefix}-${size}`, className);
 
     return (
       <div className={wrapCls} />

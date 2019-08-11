@@ -1,5 +1,5 @@
-import * as React from 'react';
-import classname from 'classnames';
+import React, { Component } from 'react';
+import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import { IconSizeProps, CustomProps } from '../_util/customProps';
 import * as IconsLists from './icons/index';
@@ -11,7 +11,7 @@ interface IconProps extends IconSizeProps, CustomProps {
   height?: string | number;
 }
 
-export default class Icon extends React.Component<IconProps> {
+export default class Icon extends Component<IconProps> {
 
   renderSvg() {
     const { type, ...restProps } = this.props;
@@ -30,8 +30,6 @@ export default class Icon extends React.Component<IconProps> {
         return <IconsLists.Down { ...restProps } />;
       case 'ellipsis':
         return <IconsLists.Ellipsis { ...restProps } />;
-      case 'fail':
-        return <IconsLists.Fail { ...restProps } />;
       case 'loading':
         return <IconsLists.Loading { ...restProps } />;
       case 'minus':
@@ -40,8 +38,6 @@ export default class Icon extends React.Component<IconProps> {
         return <IconsLists.Plus { ...restProps } />;
       case 'search':
         return <IconsLists.Search { ...restProps } />;
-      case 'success':
-        return <IconsLists.Success { ...restProps } />;
       case 'up':
         return <IconsLists.Up { ...restProps } />;
       case 'voice':
@@ -53,7 +49,7 @@ export default class Icon extends React.Component<IconProps> {
   render() {
     const { style, className } = this.props;
     const prefixCls = setPrefix('icon');
-    const wrapCls = classname(prefixCls, className);
+    const wrapCls = classnames(prefixCls, className);
 
     return (
       <div className={wrapCls} style={style}>

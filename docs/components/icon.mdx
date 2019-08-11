@@ -27,29 +27,55 @@ import * as IconLists from 'components/icon/icons'
           return (
             <div>
               <h3>Left</h3>
-              <Flex align="center">
+              <Flex align='center'>
                 <Flex.Item>
-                  <Icon style={style} type="left" fill='red' />
+                  <Icon style={style} type='left' fill='red' />
                   <IconLists.Left style={style} fill='green' />
                 </Flex.Item>
               </Flex>
               <h3>Right</h3>
               <Flex>
                 <Flex.Item>
-                  <Icon style={style} type="right" />
+                  <Icon style={style} type='right' />
                   <IconLists.Right style={style} fill='green' />
                 </Flex.Item>
               </Flex>
               <h3>Loading</h3>
               <Flex>
                 <Flex.Item>
-                  <Icon style={style} type="loading" />
+                  <Icon style={style} type='loading' />
                   <IconLists.Loading style={style} fill='green' />
-                  <IconLists.Loading style={style} size="xss" fill="red" storke="#ccc" />
-                  <IconLists.Loading style={style} size="xs" fill="green" />
-                  <IconLists.Loading style={style} size="sm" fill="blue" />
-                  <IconLists.Loading style={style} size="md" fill="#ccc" />
-                  <IconLists.Loading style={style} size="lg" fill="yellow" />
+                  <IconLists.Loading style={style} size='xss' fill='red' storke='#ccc' />
+                  <IconLists.Loading style={style} size='xs' fill='green' storke='yellow' />
+                  <IconLists.Loading style={style} size='sm' fill='blue' storke='red' />
+                  <IconLists.Loading style={style} size='md' fill='#ccc' storke='purple' />
+                  <IconLists.Loading style={style} size='lg' fill='yellow' storke='red' />
+                </Flex.Item>
+              </Flex>
+              <h3>All in</h3>
+              <Flex>
+                <Flex.Item>
+                  <IconLists.Left style={style} fill='red' />
+                  <IconLists.Right style={style} fill='green' />
+                  <IconLists.Loading style={style} fill='yellow' storke='red' />
+                  <IconLists.Check style={style} fill='red' />
+                  <IconLists.Cross style={style} fill='red' />
+                  <IconLists.CheckCircle style={style} fill='green' />
+                  <IconLists.CheckCircle style={style} fill='blue' theme="filled" />
+                  <IconLists.CrossCircle style={style} fill='green' />
+                  <IconLists.CrossCircle style={style} fill='blue' theme="filled" />
+                  <IconLists.Down style={style} fill='red' />
+                  <IconLists.Up style={style} fill='green' />
+                  <IconLists.Search style={style} fill='blue' />
+                  <IconLists.Ellipsis style={style} fill='red' />
+                  <IconLists.EllipsisCircle style={style} fill='green' />
+                  <IconLists.QuestionCircle style={style} fill='blue' />
+                  <IconLists.Voice style={style} fill='green' />
+                  <IconLists.Plus style={style} fill='blue' />
+                  <IconLists.Minus style={style} fill='blue' />
+                  <IconLists.Dislike style={style} storke='red' fill='red' />
+                  <IconLists.ExclamationCircle style={style} fill='green' />
+                  <IconLists.InfoCircle style={style} fill='blue' />
                 </Flex.Item>
               </Flex>
             </div>
@@ -63,10 +89,15 @@ import * as IconLists from 'components/icon/icons'
 
 ### API
 
-|    属性     |                             说明                             |             类型             |                  默认值                  | 版本  |
-| :---------: | :----------------------------------------------------------: | :--------------------------: | :--------------------------------------: | :---: |
-|  **type**   | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` |           `string`           | `info`，`banner`模式下默认值为 `warning` | 0.0.1 |
-| **message** |                       警告提示内容类名                       | `string` \| `ReactNodestring` |                    无                    | 0.0.1 |
-| **banner**  |                       是否用作顶部公告                       |          `boolean`           |                 `false`                  | 0.0.1 |
+| 属性      | 说明                                                         | 类型                      | 默认值     | 版本  |
+| :-------- | ------------------------------------------------------------ | ------------------------- | ---------- | ----- |
+| type      | 图标类型                                                      | `string`                  | -          | 0.0.1 |
+| style     | 设置图标的样式，例如 `fontSize` 和 `color`                   | `CSSProperties`           | -          | 0.0.1 |
+| theme     | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | `filled`\| `outlined`      | `outlined` | 0.0.1 |
+| spin      | 是否有旋转动画                                               | `boolean`                 | `false`    | 0.0.1 |
+| rotate    | 图标旋转角度                                                 | `number`                  | -          | 0.0.1 |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 type 属性失效** | `ComponentType<SvgProps>` | -          | 0.0.1 |
+
+
 
 <Props of={Icon} />
