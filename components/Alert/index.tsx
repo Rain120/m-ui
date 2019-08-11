@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import classname from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import './style';
@@ -11,7 +11,7 @@ interface AlertProps {
   banner?: boolean;
 }
 
-export default class Alert extends React.Component<AlertProps> {
+export default class Alert extends Component<AlertProps> {
 
   render() {
     const {

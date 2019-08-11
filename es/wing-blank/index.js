@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import classname from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import './style';
-export default class WingBlank extends React.Component {
+export default class WingBlank extends Component {
     render() {
         const { size = 'lg', style, className, children } = this.props;
         const prefix = setPrefix('wing-blank');

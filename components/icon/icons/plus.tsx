@@ -1,15 +1,21 @@
-import * as React from "react";
-import BaseIcon from './BaseIcon';
-import { IconSizeProps, CustomProps } from '../../_util/customProps';
+import React, { Component } from 'react';
+import SvgWrapper from './SvgWrapper';
+import { IconSizeProps, CustomProps, CustomIconProps } from '../../_util/customProps';
 
-interface PlusProps extends IconSizeProps, CustomProps {
-  width?: string | number;
-  height?: string | number;
+interface PlusProps extends IconSizeProps, CustomProps, CustomIconProps {
+  type: string;
 }
 
-export class Plus extends React.Component<PlusProps> {
+export class Plus extends Component<PlusProps> {
+  static defaultProps = {
+    type: 'plus',
+    viewBox: '0 0 30 30',
+  };
   render() {
-    return <BaseIcon type="plus" { ...this.props} />;
+    return (
+      <SvgWrapper {...this.props}>
+        <path d="M14 14H0v2h14v14h2V16h14v-2H16V0h-2v14z" fillRule="evenodd"/>
+      </SvgWrapper>
+    );
   }
 }
-

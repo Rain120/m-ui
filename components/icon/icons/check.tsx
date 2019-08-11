@@ -1,15 +1,21 @@
-import * as React from "react";
-import BaseIcon from './BaseIcon';
-import { IconSizeProps, CustomProps } from '../../_util/customProps';
+import React, { Component } from 'react';
+import SvgWrapper from './SvgWrapper';
+import { IconSizeProps, CustomProps, CustomIconProps } from '../../_util/customProps';
 
-interface CheckProps extends IconSizeProps, CustomProps {
-  width?: string | number;
-  height?: string | number;
+interface CheckProps extends IconSizeProps, CustomProps, CustomIconProps {
+  type: string;
 }
 
-export class Check extends React.Component<CheckProps> {
+export class Check extends Component<CheckProps> {
+  static defaultProps = {
+    type: 'check',
+    viewBox: '0 0 44 44',
+  };
   render() {
-    return <BaseIcon type="check" { ...this.props} />;
+    return (
+      <SvgWrapper {...this.props}>
+        <path fillRule="evenodd" d="M34.538 8L38 11.518 17.808 32 8 22.033l3.462-3.518 6.346 6.45z"/>
+      </SvgWrapper>
+    );
   }
 }
-

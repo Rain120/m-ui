@@ -1,5 +1,6 @@
 import Flex from './Flex';
-// import FlexItem from './FlexItem';
-// Flex.Item = FlexItem;
+import FlexItem from './FlexItem';
+import './style/index';
+Flex.Item = FlexItem;
 export default Flex;
 //# sourceMappingURL=index.js.map
