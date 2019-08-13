@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classnames from 'ss';
+import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import { WingBlankSizeProps, CustomProps } from '../_util/customProps';
 import './style';

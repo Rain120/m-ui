@@ -20,75 +20,228 @@ import { Flex, Alert, WhiteSpace } from 'components';
         }
 
         render() {
-          const style = {
+          const s1 = {
             width: '100%',
+            margin: '10px 0'
+          };
+          const style = {
+            width: '100px',
             margin: '10px'
           };
           return (
             <div>
-              <h3>Basic</h3>
+              <h2>Basic</h2>
               <Flex>
                   <Flex.Item>
-                    <Alert style={style} message="LOL😆" type="success" />
-                    <Alert style={style} message="LOL😄" type="info" />
+                    <Alert style={s1} message="LOL😆" type="success" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL😄" type="info" />
                   </Flex.Item>
                 </Flex>
                 <Flex>
                   <Flex.Item>
-                    <Alert style={style} message="LOL😆" type="success" />
-                    <Alert style={style} message="LOL😄" type="info" />
-                    <Alert style={style} message="LOL🙄" type="warning" />
+                    <Alert style={s1} message="LOL😆" type="success" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL😄" type="info" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL🙄" type="warning" />
                   </Flex.Item>
                 </Flex>
                 <Flex>
                   <Flex.Item>
+                    <Alert style={s1} message="LOL😆" type="success" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL😄" type="info" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL🙄" type="warning" />
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Alert style={s1} message="LOL😭" type="error" />
+                  </Flex.Item>
+                </Flex>
+              <h2>Align</h2>
+              <h4>justify: start</h4>
+              <Flex align="start">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '10px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '10px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: center</h4>
+              <Flex align="center">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '10px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '10px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: end</h4>
+              <Flex align="end">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '10px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '10px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: baseline</h4>
+              <Flex align="baseline">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '10px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '10px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: stretch</h4>
+              <Flex align="stretch">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '10px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '10px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h2>Align Content</h2>
+              <h4>justify: start</h4>
+              <Flex alignContent="start">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: center</h4>
+              <Flex alignContent="center">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: end</h4>
+              <Flex alignContent="end">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: around</h4>
+              <Flex alignContent="around">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: between</h4>
+              <Flex alignContent="between">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h2>Direction</h2>
+              <h4>direction: row</h4>
+              <Flex direction="row">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>direction: row-reverse</h4>
+              <Flex direction="row-reverse">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <Flex>
+                <Flex.Item>
+                  <Flex direction="column">
+                    <h4>direction: column</h4>
                     <Alert style={style} message="LOL😆" type="success" />
                     <Alert style={style} message="LOL😄" type="info" />
                     <Alert style={style} message="LOL🙄" type="warning" />
                     <Alert style={style} message="LOL😭" type="error" />
-                  </Flex.Item>
-                </Flex>
-              <WhiteSpace size="lg" />
-              <h3>Align</h3>
-              <Flex justify="center">
+                  </Flex>
+                </Flex.Item>
                 <Flex.Item>
-                  <Alert style={style} message="LOL😆" type="success" />
-                  <Alert style={style} message="LOL😄" type="info" />
-                  <Alert style={style} message="LOL🙄" type="warning" />
-                  <Alert style={style} message="LOL😭" type="error" />
+                  <h4>direction: column-reverse</h4>
+                  <Flex direction="column-reverse">
+                    <Alert style={style} message="LOL😆" type="success" />
+                    <Alert style={style} message="LOL😄" type="info" />
+                    <Alert style={style} message="LOL🙄" type="warning" />
+                    <Alert style={style} message="LOL😭" type="error" />
+                  </Flex>
                 </Flex.Item>
               </Flex>
-              <Flex justify="end">
-                <Flex.Item>
-                  <Alert style={style} message="LOL😆" type="success" />
-                  <Alert style={style} message="LOL😄" type="info" />
-                  <Alert style={style} message="LOL🙄" type="warning" />
-                  <Alert style={style} message="LOL😭" type="error" />
-                </Flex.Item>
-              </Flex>
+              <h2>Justify</h2>
+              <h4>justify: start</h4>
               <Flex justify="start">
-                <Flex.Item>
-                  <Alert style={style} message="LOL😆" type="success" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
-                  <Alert style={style} message="LOL😭" type="error" />
-                </Flex.Item>
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
               </Flex>
-              <Flex justify="baseline">
-                <Flex.Item>
-                  <Alert style={style} message="LOL😆" type="success" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
-                  <Alert style={style} message="LOL😭" type="error" />
-                </Flex.Item>
+              <h4>justify: center</h4>
+              <Flex justify="center">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
               </Flex>
-              <Flex justify="stretch">
-                <Flex.Item>
-                  <Alert style={style} message="LOL😆" type="success" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
-                  <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
-                  <Alert style={style} message="LOL😭" type="error" />
-                </Flex.Item>
+              <h4>justify: end</h4>
+              <Flex justify="end">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: around</h4>
+              <Flex justify="around">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h4>justify: between</h4>
+              <Flex justify="between">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={{ height: '30px', ...style }} message="LOL😄" type="info" />
+                <Alert style={{ height: '30px', ...style }} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <h2>Wrap</h2>
+              <h4>wrap: no-wrap</h4>
+              <Flex wrap="no-wrap">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <WhiteSpace size="lg" />
+              <h4>wrap: wrap</h4>
+              <Flex wrap="wrap">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+              </Flex>
+              <WhiteSpace size="lg" />
+              <h4>wrap: wrap-reverse</h4>
+              <Flex wrap="wrap-reverse">
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
+                <Alert style={style} message="LOL😆" type="success" />
+                <Alert style={style} message="LOL😄" type="info" />
+                <Alert style={style} message="LOL🙄" type="warning" />
+                <Alert style={style} message="LOL😭" type="error" />
               </Flex>
             </div>
           );
@@ -101,10 +254,12 @@ import { Flex, Alert, WhiteSpace } from 'components';
 
 ### API
 
-|    属性     |                             说明                             |             类型             |                  默认值                  | 版本  |
-| :---------: | :----------------------------------------------------------: | :--------------------------: | :--------------------------------------: | :---: |
-|  **type**   | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` |           `string`           | `info`，`banner`模式下默认值为 `warning` | 0.0.1 |
-| **message** |                       警告提示内容类名                       | `string` \| `ReactNodestring` |                    无                    | 0.0.1 |
-| **banner**  |                       是否用作顶部公告                       |          `boolean`           |                 `false`                  | 0.0.1 |
 
+|       属性       |                             说明                             |   类型   |  默认值   | 版本  |
+| :--------------: | :----------------------------------------------------------: | :------: | :-------: | :---: |
+|  **direction**   | 项目定位方向，值可以为 `row`,`row-reverse`,`column`,`column-reverse` | `String` |   `row`   | 0.0.1 |
+|     **wrap**     | 子元素的换行方式，可选`nowrap`,`wrap`,`wrap-reverse` | `String` | `nowrap`  | 0.0.1 |
+|   **justify**    | 子元素在主轴上的对齐方式，可选`start`,`end`,`center`,`between`,`around` | `String` |  `start`  | 0.0.1 |
+|    **align**     | 子元素在交叉轴上的对齐方式，可选`start`,`center`,`end`,`baseline`,`stretch` | `String` | `center`  | 0.0.1 |
+| **alignContent** | 有多根轴线时的对齐方式，可选`start`,`end`,`center`,`between`,`around`,`stretch` | `String` | `stretch` | 0.0.1 |
 <Props of={Flex} />
