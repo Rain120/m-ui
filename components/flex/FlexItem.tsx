@@ -16,7 +16,7 @@ export default class FlexItem extends Component<FlexItemProps> {
       style,
       ...resetProps
     } = this.props;
-    const prefixCls = setPrefix('flex');
+    const prefixCls = setPrefix('flex-item');
     const wrapCls = classnames(
       className,
       prefixCls
