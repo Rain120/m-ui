@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 
 const modifyBundlerConfig = (config, dev) => {
   const styleLoaders = ['css-loader'];
-  // styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
+  styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
   return merge(config, {
     resolve: {
       alias: {
@@ -21,13 +21,13 @@ const modifyBundlerConfig = (config, dev) => {
       ]
     },
     optimization: {},
-    // plugins: [
-    //   dev
-    //     ? () => {}
-    //     : new MiniCssExtractPlugin({
-    //         chunkFilename: 'static/css/common.[hash].css'
-    //       })
-    // ]
+    plugins: [
+      dev
+        ? () => {}
+        : new MiniCssExtractPlugin({
+            chunkFilename: 'static/css/common.[hash].css'
+          })
+    ]
   });
 }
 
