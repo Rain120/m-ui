@@ -2,7 +2,7 @@
  * @Author: Rainy
  * @Date: 2019-08-06 20:24:20
  * @LastEditors: Rainy
- * @LastEditTime: 2019-08-15 21:12:40
+ * @LastEditTime: 2019-08-15 22:14:39
  */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -10,7 +10,8 @@ const merge = require('webpack-merge');
 
 const modifyBundlerConfig = (config, dev) => {
   const styleLoaders = ['css-loader'];
-  styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
+  // styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
+  styleLoaders.unshift('style-loader');
   return merge(config, {
     resolve: {
       alias: {
@@ -27,13 +28,13 @@ const modifyBundlerConfig = (config, dev) => {
       ]
     },
     optimization: {},
-    plugins: [
-      dev
-        ? () => {}
-        : new MiniCssExtractPlugin({
-            chunkFilename: 'static/css/common.[hash].css'
-          })
-    ]
+    // plugins: [
+    //   dev
+    //     ? () => {}
+    //     : new MiniCssExtractPlugin({
+    //         chunkFilename: 'static/css/common.[hash].css'
+    //       })
+    // ]
   });
 }
 
