@@ -1,9 +1,3 @@
-/*
- * @Author: Rainy
- * @Date: 2019-08-06 20:24:20
- * @LastEditors: Rainy
- * @LastEditTime: 2019-08-15 21:12:40
- */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
