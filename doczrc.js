@@ -1,3 +1,9 @@
+/*
+ * @Author: Rainy
+ * @Date: 2019-08-06 20:24:20
+ * @LastEditors: Rainy
+ * @LastEditTime: 2019-08-15 20:04:59
+ */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
@@ -35,7 +41,7 @@ module.exports = {
   title: 'zc/rmc-ui',
   codeSandbox: false,
   hashRouter: true,
-  // dest: 'docs',
+  dest: 'netlify-docs',
   htmlContext: {
     head: {
       links: [
