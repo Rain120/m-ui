@@ -1,4 +1,4 @@
-export { default as Alert } from './alert';
+export { default as Alert } from './Alert';
 
 export { default as Flex } from './flex/index';
 
