@@ -22,7 +22,7 @@ export default class Alert extends Component<AlertProps> {
     } = this.props;
     let { type = 'info' } = this.props;
     const prefixCls = setPrefix('alert');
-    type = banner && type === undefined ? 'warning' : type || 'info';
+    type = banner ? 'warning' : type || 'info';
     const wrapCls = classname(
       prefixCls,
       `${prefixCls}-${type}`,
