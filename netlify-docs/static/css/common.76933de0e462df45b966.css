@@ -1,0 +1,192 @@
+.rmc-ui-alert {
+  box-sizing: border-box;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  position: relative;
+  padding: 8px 15px 8px 37px;
+  border-radius: 4px;
+}
+.rmc-ui-alert-success {
+  background-color: #f5ffee;
+  border: 1px solid #b7eb8f;
+}
+.rmc-ui-alert-info {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+}
+.rmc-ui-alert-warning {
+  background-color: #fffce6;
+  border: 1px solid #ffe58f;
+}
+.rmc-ui-alert-error {
+  background-color: #fff1ef;
+  border: 1px solid #ffa39e;
+}
+.rmc-ui-alert-banner {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+}
+.rmc-ui-flex {
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-row {
+  flex-direction: row;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-row-reverse {
+  flex-direction: row-reverse;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-column {
+  flex-direction: column;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-column .rmc-ui-flex-item {
+  margin-left: 0;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+.rmc-ui-flex.rmc-ui-flex-direction-column-reverse .rmc-ui-flex-item {
+  margin-left: 0;
+}
+.rmc-ui-flex.rmc-ui-flex-nowrap {
+  flex-wrap: nowrap;
+}
+.rmc-ui-flex.rmc-ui-flex-wrap {
+  flex-wrap: wrap;
+}
+.rmc-ui-flex.rmc-ui-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.rmc-ui-flex.rmc-ui-flex-justify-start {
+  justify-content: flex-start;
+}
+.rmc-ui-flex.rmc-ui-flex-justify-end {
+  justify-content: flex-end;
+}
+.rmc-ui-flex.rmc-ui-flex-justify-center {
+  justify-content: center;
+}
+.rmc-ui-flex.rmc-ui-flex-justify-between {
+  justify-content: space-between;
+}
+.rmc-ui-flex.rmc-ui-flex-justify-around {
+  justify-content: space-around;
+}
+.rmc-ui-flex.rmc-ui-flex-align-start {
+  align-items: flex-start;
+}
+.rmc-ui-flex.rmc-ui-flex-align-end {
+  align-items: flex-end;
+}
+.rmc-ui-flex.rmc-ui-flex-align-center {
+  align-items: center;
+}
+.rmc-ui-flex.rmc-ui-flex-align-stretch {
+  align-items: stretch;
+}
+.rmc-ui-flex.rmc-ui-flex-align-baseline {
+  align-items: baseline;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-start {
+  align-content: flex-start;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-end {
+  align-content: flex-end;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-center {
+  align-content: center;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-between {
+  align-content: space-between;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-around {
+  align-content: space-around;
+}
+.rmc-ui-flex.rmc-ui-flex-align-content-stretch {
+  align-content: stretch;
+}
+.rmc-ui-flex .rmc-ui-flex-item {
+  box-sizing: border-box;
+  flex: 1;
+  margin-left: 8px;
+  min-width: 10px;
+}
+.rmc-ui-flex .rmc-ui-flex-item:first-child {
+  margin-left: 0;
+}
+.rmc-ui-icon {
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+}
+.rmc-ui-icon-xxs {
+  width: 15px;
+  height: 15px;
+}
+.rmc-ui-icon-xs {
+  width: 18px;
+  height: 18px;
+}
+.rmc-ui-icon-sm {
+  width: 21px;
+  height: 21px;
+}
+.rmc-ui-icon-md {
+  width: 22px;
+  height: 22px;
+}
+.rmc-ui-icon-lg {
+  width: 36px;
+  height: 36px;
+}
+.rmc-ui-icon-loading {
+  animation: cirle-anim 1s linear infinite;
+}
+@keyframes cirle-anim {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.rmc-ui-white-space.rmc-ui-white-space-xs {
+  height: 3px;
+}
+.rmc-ui-white-space.rmc-ui-white-space-sm {
+  height: 6px;
+}
+.rmc-ui-white-space.rmc-ui-white-space-md {
+  height: 9px;
+}
+.rmc-ui-white-space.rmc-ui-white-space-lg {
+  height: 15px;
+}
+.rmc-ui-white-space.rmc-ui-white-space-xl {
+  height: 21px;
+}
+.rmc-ui-wing-blank {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.rmc-ui-wing-blank.rmc-ui-wing-blank-sm {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.rmc-ui-wing-blank.rmc-ui-wing-blank-md {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.rmc-ui-wing-blank.rmc-ui-wing-blank-lg {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+/*# sourceMappingURL=../js/docs-components-wing-blank.76933de0e462df45b966.js.map*/
