@@ -2,7 +2,7 @@
  * @Author: Rainy
  * @Date: 2019-08-06 20:24:20
  * @LastEditors: Rainy
- * @LastEditTime: 2019-08-15 20:04:59
+ * @LastEditTime: 2019-08-15 21:12:40
  */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -38,7 +38,7 @@ const modifyBundlerConfig = (config, dev) => {
 }
 
 module.exports = {
-  title: 'zc/rmc-ui',
+  title: 'rmc-ui',
   codeSandbox: false,
   hashRouter: true,
   dest: 'netlify-docs',
@@ -63,11 +63,11 @@ module.exports = {
   modifyBundlerConfig,
   plugins: [],
   menu: [
-    'Introduction',
-    'Quick Start',
-    'Changelog',
+    { name: '介绍', route: '/introduction' },
+    { name: '快速开始', route: '/quick-start' },
+    { name: '更新日志', route: '/changelog' },
     {
-      name: 'Components'
+      name: '组件'
     }
   ]
 }
