@@ -2,7 +2,7 @@
  * @Author: Rainy
  * @Date: 2019-08-06 20:24:20
  * @LastEditors: Rainy
- * @LastEditTime: 2019-08-15 22:14:39
+ * @LastEditTime: 2019-08-15 22:19:27
  */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -11,7 +11,6 @@ const merge = require('webpack-merge');
 const modifyBundlerConfig = (config, dev) => {
   const styleLoaders = ['css-loader'];
   // styleLoaders.unshift(dev ? 'style-loader' : MiniCssExtractPlugin.loader);
-  styleLoaders.unshift('style-loader');
   return merge(config, {
     resolve: {
       alias: {
