@@ -1,59 +1,74 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
-import { IconSizeProps, CustomProps } from '../_util/customProps';
-import * as IconsLists from './icons/index';
+import { IconSizeProps, CustomProps, CustomIconProps } from '../_util/customProps';
+import { WrapperComponent } from '../_util/WrapperComponent';
+import { getIconLists } from './icons/index';
+import warning from "../_util/warning";
 import './style';
 
-interface IconProps extends IconSizeProps, CustomProps {
+interface IconProps extends IconSizeProps, CustomProps, CustomIconProps {
   type: string;
-  width?: string | number;
-  height?: string | number;
 }
 
 export default class Icon extends Component<IconProps> {
 
   renderSvg() {
     const { type, ...restProps } = this.props;
-    switch(type) {
-      case 'left':
-        return <IconsLists.Left { ...restProps } />;
-      case 'right':
-        return <IconsLists.Right { ...restProps } />;
-      case 'check':
-        return <IconsLists.Check { ...restProps } />;
-      case 'cross':
-        return <IconsLists.Cross { ...restProps } />;
-      case 'dislike':
-        return <IconsLists.Dislike { ...restProps } />;
-      case 'down':
-        return <IconsLists.Down { ...restProps } />;
-      case 'ellipsis':
-        return <IconsLists.Ellipsis { ...restProps } />;
-      case 'loading':
-        return <IconsLists.Loading { ...restProps } />;
-      case 'minus':
-        return <IconsLists.Minus { ...restProps } />;
-      case 'plus':
-        return <IconsLists.Plus { ...restProps } />;
-      case 'search':
-        return <IconsLists.Search { ...restProps } />;
-      case 'up':
-        return <IconsLists.Up { ...restProps } />;
-      case 'voice':
-        return <IconsLists.Voice { ...restProps } />;
-    }
-    return;
+    console.log(getIconLists(type))
+    return WrapperComponent(getIconLists(type), restProps);
   }
 
   render() {
-    const { style, className } = this.props;
+    const {
+      style,
+      className,
+      type,
+      viewBox,
+      children,
+      component: Component
+    } = this.props;
     const prefixCls = setPrefix('icon');
     const wrapCls = classnames(prefixCls, className);
 
+    let innerNode: React.ReactNode;
+
+    const innerSvgProps: CustomIconProps = {
+      ...this.props
+    };
+
+    warning(
+      Boolean(type || Component || children),
+      'Icon',
+      'Should have `type` prop or `component` prop or `children`.',
+    );
+
+    if (!viewBox) {
+      delete innerSvgProps['viewBox'];
+    }
+
+    if (Component) {
+      innerNode = <Component />;
+    } else if (children) {
+      warning(
+        Boolean(viewBox) ||
+          (React.Children.count(children) === 1 &&
+            React.isValidElement(children) &&
+            React.Children.only(children).type === 'use'),
+        'Icon',
+        'Make sure that you provide correct `viewBox`' +
+          ' prop (default `0 0 1024 1024`) to the icon.',
+      );
+      innerNode = (
+        <svg {...innerSvgProps} viewBox={viewBox}>
+          {children}
+        </svg>
+      );
+    }
+
     return (
       <div className={wrapCls} style={style}>
-        {this.renderSvg()}
+        {type ? this.renderSvg() : innerNode}
       </div>
     )
   }

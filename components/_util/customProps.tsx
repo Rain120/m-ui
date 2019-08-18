@@ -22,6 +22,7 @@ export interface SvgProps {
 }
 
 export interface CustomIconProps {
+  viewBox?: string;
   width?: string | number;
   height?: string | number;
   fill?: string;
