@@ -1,3 +1,8 @@
+/*
+ * @Author: Rain120
+ * @Date: 2019-08-18 15:19:09
+ * @LastEditTime: 2019-08-18 17:53:27
+ */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
@@ -32,7 +37,7 @@ const modifyBundlerConfig = (config, dev) => {
 }
 
 module.exports = {
-  title: 'rmc-ui',
+  title: 'RMC-UI',
   codeSandbox: false,
   hashRouter: true,
   dest: 'netlify-docs',
@@ -47,7 +52,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    showPlaygroundEditor: true,
+    showPlaygroundEditor: false,
     codemirrorTheme: 'material'
   },
   typescript: true,
@@ -57,11 +62,10 @@ module.exports = {
   modifyBundlerConfig,
   plugins: [],
   menu: [
-    { name: '介绍', route: '/introduction' },
-    { name: '快速开始', route: '/quick-start' },
-    { name: '更新日志', route: '/changelog' },
-    {
-      name: '组件'
-    }
+    { name: 'Home', route: '/' },
+    { name: 'Quick Start', route: '/quick-start' },
+    { name: 'Introduction', route: '/introduction' },
+    { name: 'Changelog', route: '/changelog' },
+    { name: 'Components' }
   ]
 }

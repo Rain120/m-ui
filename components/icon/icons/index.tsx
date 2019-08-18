@@ -1,3 +1,5 @@
+export const getIconLists = (type: string) => import(`./${type}`);
+
 export { Left } from './left';
 
 export { Right } from './right';
