@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
 import { IconSizeProps, CustomProps, CustomIconProps } from '../_util/customProps';
 import { WrapperComponent } from '../_util/WrapperComponent';
-import { getIconLists } from './icons/index';
+import { getIcon } from './icons/index';
 import warning from "../_util/warning";
 import './style';
 
@@ -13,10 +13,14 @@ interface IconProps extends IconSizeProps, CustomProps, CustomIconProps {
 
 export default class Icon extends Component<IconProps> {
 
-  renderSvg() {
+  async renderSvg() {
     const { type, ...restProps } = this.props;
-    console.log(getIconLists(type))
-    return WrapperComponent(getIconLists(type), restProps);
+    await getIcon(type).then(res => {
+      let compName = type.replace(/\b\w/, $0 => $0.toUpperCase());
+      let Comp = res[compName];
+      console.log(res, compName, Comp);
+      return WrapperComponent(Comp, restProps);
+    })
   }
 
   render() {
@@ -68,7 +72,7 @@ export default class Icon extends Component<IconProps> {
 
     return (
       <div className={wrapCls} style={style}>
-        {type ? this.renderSvg() : innerNode}
+        {Component ? innerNode : this.renderSvg()}
       </div>
     )
   }

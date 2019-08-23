@@ -48,7 +48,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint-staged": "lint-staged",
     "tsc": "tsc",
-    "lint-staged:ts": "npm run tsc && node node_modules/tslint/bin/tslint -c ./tslint.json components/**/*.tsx",
+    "tslint:ts": "npm run tsc && node ./node_modules/tslint/bin/tslint -c ./tslint.json components/**/*.tsx",
     "lint": "tslint --type-check --project ./tsconfig.json && stylelint \"components/**/*.less\"",
     "precommit": "npm run lint",
     "docz:dev": "docz dev --ts",
@@ -56,8 +56,10 @@
     "prepublishOnly": "npm run build"
   },
   "lint-staged": {
-    "components/**/*.{tsx}": [
-      "npm run lint-staged:ts"
+    "components/**/*.{ts, tsx}": [
+      "prettier --write",
+      "npm run tslint:ts",
+      "git add"
     ],
     "{components}/**/*.less": "stylelint --syntax less"
   },
@@ -82,9 +84,7 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -119,6 +119,9 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-lifecycles-compat": "^3.0.4",
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",

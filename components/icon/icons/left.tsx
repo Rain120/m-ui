@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SvgWrapper from './SvgWrapper';
-import { IconSizeProps, CustomProps, CustomIconProps } from '../../_util/customProps';
+import { IconSizeProps, CustomProps, SvgProps } from '../../_util/customProps';
 
-interface LeftProps extends IconSizeProps, CustomProps, CustomIconProps {
+interface LeftProps extends IconSizeProps, CustomProps, SvgProps {
   type: string;
 }
 

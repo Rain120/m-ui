@@ -1,4 +1,5 @@
-export { default as Alert } from './alert';
+export { default as Alert } from './Alert';
+export { default as Button } from './button';
 export { default as Flex } from './flex/index';
 export { default as Icon } from './icon';
 export { default as WhiteSpace } from './white-space';

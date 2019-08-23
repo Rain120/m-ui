@@ -1,0 +1,48 @@
+---
+name: Button 按钮
+menu: Components
+route: /components/Button
+---
+
+import { Playground, Props } from 'docz';
+import { Button, WhiteSpace } from 'components';
+import '../style/index.less';
+
+# Button
+
+按钮组件
+
+## 基本用法
+
+<Playground>
+  {
+    () => {
+      class ExampleButton extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <Button>😁</Button>
+            </div>
+          );
+        }
+      }
+      return <ExampleButton />;
+    }
+
+}
+
+</Playground>
+
+## API
+
+|    属性     |                                 说明                                 |             类型              |                  默认值                  | 版本  |
+| :---------: | :------------------------------------------------------------------: | :---------------------------: | :--------------------------------------: | :---: |
+|  **type**   | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` |           `string`            | `info`，`banner`模式下默认值为 `warning` | 0.0.1 |
+| **message** |                           警告提示内容类名                           | `string` \| `ReactNodestring` |                    无                    | 0.0.1 |
+| **banner**  |                           是否用作顶部公告                           |           `boolean`           |                 `false`                  | 0.0.1 |
+
+<Props of={Button} />

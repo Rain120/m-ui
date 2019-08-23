@@ -1,3 +1,4 @@
+export const getIcon = (type) => import(`./${type}`);
 export { Left } from './left';
 export { Right } from './right';
 export { Check } from './check';

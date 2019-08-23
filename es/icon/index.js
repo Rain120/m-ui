@@ -1,3 +1,11 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -12,46 +20,44 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { setPrefix } from '../_util/setPrefix';
-import * as IconsLists from './icons/index';
+import { WrapperComponent } from '../_util/WrapperComponent';
+import { getIcon } from './icons/index';
+import warning from "../_util/warning";
 import './style';
 export default class Icon extends Component {
     renderSvg() {
-        const _a = this.props, { type } = _a, restProps = __rest(_a, ["type"]);
-        switch (type) {
-            case 'left':
-                return React.createElement(IconsLists.Left, Object.assign({}, restProps));
-            case 'right':
-                return React.createElement(IconsLists.Right, Object.assign({}, restProps));
-            case 'check':
-                return React.createElement(IconsLists.Check, Object.assign({}, restProps));
-            case 'cross':
-                return React.createElement(IconsLists.Cross, Object.assign({}, restProps));
-            case 'dislike':
-                return React.createElement(IconsLists.Dislike, Object.assign({}, restProps));
-            case 'down':
-                return React.createElement(IconsLists.Down, Object.assign({}, restProps));
-            case 'ellipsis':
-                return React.createElement(IconsLists.Ellipsis, Object.assign({}, restProps));
-            case 'loading':
-                return React.createElement(IconsLists.Loading, Object.assign({}, restProps));
-            case 'minus':
-                return React.createElement(IconsLists.Minus, Object.assign({}, restProps));
-            case 'plus':
-                return React.createElement(IconsLists.Plus, Object.assign({}, restProps));
-            case 'search':
-                return React.createElement(IconsLists.Search, Object.assign({}, restProps));
-            case 'up':
-                return React.createElement(IconsLists.Up, Object.assign({}, restProps));
-            case 'voice':
-                return React.createElement(IconsLists.Voice, Object.assign({}, restProps));
-        }
-        return;
+        return __awaiter(this, void 0, void 0, function* () {
+            const _a = this.props, { type } = _a, restProps = __rest(_a, ["type"]);
+            yield getIcon(type).then(res => {
+                let compName = type.replace(/\b\w/, $0 => $0.toUpperCase());
+                let Comp = res[compName];
+                console.log(res, compName, Comp);
+                return WrapperComponent(Comp, restProps);
+            });
+        });
     }
     render() {
-        const { style, className } = this.props;
+        const { style, className, type, viewBox, children, component: Component } = this.props;
         const prefixCls = setPrefix('icon');
         const wrapCls = classnames(prefixCls, className);
-        return (React.createElement("div", { className: wrapCls, style: style }, this.renderSvg()));
+        let innerNode;
+        const innerSvgProps = Object.assign({}, this.props);
+        warning(Boolean(type || Component || children), 'Icon', 'Should have `type` prop or `component` prop or `children`.');
+        if (!viewBox) {
+            delete innerSvgProps['viewBox'];
+        }
+        if (Component) {
+            innerNode = React.createElement(Component, null);
+        }
+        else if (children) {
+            warning(Boolean(viewBox) ||
+                (React.Children.count(children) === 1 &&
+                    React.isValidElement(children) &&
+                    React.Children.only(children).type === 'use'), 'Icon', 'Make sure that you provide correct `viewBox`' +
+                ' prop (default `0 0 1024 1024`) to the icon.');
+            innerNode = (React.createElement("svg", Object.assign({}, innerSvgProps, { viewBox: viewBox }), children));
+        }
+        return (React.createElement("div", { className: wrapCls, style: style }, Component ? innerNode : this.renderSvg()));
     }
 }
 //# sourceMappingURL=index.js.map

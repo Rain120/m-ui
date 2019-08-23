@@ -1,5 +1,7 @@
 export { default as Alert } from './Alert';
 
+export { default as Button } from './button';
+
 export { default as Flex } from './flex/index';
 
 export { default as Icon } from './icon';
